@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Gästbok</title>
+    </h:head>
+    <h:body>
+        <p:panel>
+            <h:form>
+            <h:dataTable value="#{postBean.posts}" var="posts">
+                <h:column>
+                    <f:facet name="header">Titel</f:facet>
+                    #{posts.titel}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Meddelande</f:facet>
+                    #{posts.meddelande}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Datum</f:facet>
+                    #{posts.datum}
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        <h2>Lägg upp ett inlägg</h2>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Titel" for="titel" />
+                    <h:inputText value="#{postBean.titel}" id="titel" />
+                <h:outputLabel value="Meddelande" for="meddelande" />
+                    <h:inputText value="#{postBean.meddelande}" id="meddelande" />
+                <h:outputLabel value="Namn" for="namn" />
+                    <h:inputText value="#{postBean.namn}" id="namn" />
+                <h:outputLabel value="Email" for="email" />
+                    <h:inputText value="#{postBean.email}" id="email" />
+                    <h:commandButton action="#{postBean.savePost()}" value="Save post"/>
+            </h:panelGrid>
+        </h:form>
+        <h3>Registrera dig</h3>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Username" for="username" />
+                    <h:inputText value="#{userBean.username}" id="username" />
+                <h:outputLabel value="Password" for="password" />
+                    <h:inputSecret   value="#{userBean.password}" id="password" />
+                    <h:commandButton action="#{userBean.register()}" value="Register"/>
+            </h:panelGrid>
+        </h:form>
+        </p:panel>
+    </h:body>
+</html>
+
