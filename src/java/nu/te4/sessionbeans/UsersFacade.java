@@ -5,6 +5,7 @@
  */
 package nu.te4.sessionbeans;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +29,12 @@ public class UsersFacade extends AbstractFacade<Users> {
     public UsersFacade() {
         super(Users.class);
     }
-    
+
+    public List findWithName(String username) {
+    return em.createQuery(
+        "SELECT u FROM Users u WHERE u.username = :username")
+        .setParameter("username", username)
+        .getResultList();
+}
+
 }

@@ -5,6 +5,7 @@
  */
 package nu.te4.sessionbeans;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +29,6 @@ public class PostsFacade extends AbstractFacade<Posts> {
     public PostsFacade() {
         super(Posts.class);
     }
+    
     
 }

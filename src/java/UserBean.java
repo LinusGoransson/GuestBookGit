@@ -1,13 +1,9 @@
 
 import java.io.Serializable;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Base64;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-import javax.ws.rs.core.HttpHeaders;
 import nu.te4.entities.Posts;
 import nu.te4.entities.Users;
 import nu.te4.sessionbeans.UsersFacade;
@@ -17,7 +13,7 @@ import org.mindrot.jbcrypt.BCrypt;
 @SessionScoped
 public class UserBean implements Serializable{
     private String username, password;
-
+    
     public String getUsername() {
         return username;
     }
@@ -41,4 +37,10 @@ public class UserBean implements Serializable{
         usersFacade.create(users);
         return "index";
     }
+    
+    public List<Users> getUsers(){
+           return usersFacade.findWithName(username);   
+    }
+    
+   
 }
