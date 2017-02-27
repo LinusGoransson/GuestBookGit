@@ -65,7 +65,8 @@
                                         <h:outputText value="#{posts.datum}"/></span>
                                 </div>
                                 <div class="panel-body">
-                                    <h:outputText value="#{posts.meddelande}"/>
+                                    <h:outputText value="#{posts.meddelande}"/><br/>
+                                    <h:outputText value="#{posts.email}"/>
                                 </div><!-- /panel-body -->
                             </div><!-- /panel panel-default -->
                         </div><!-- /col-sm-5 -->
@@ -82,8 +83,6 @@
                 <h:inputText value="#{postBean.titel}" id="titel" />
                 <h:outputLabel value="Meddelande" for="meddelande" />
                 <h:inputText value="#{postBean.meddelande}" id="meddelande" />
-                <h:outputLabel value="Namn" for="namn" />
-                <h:inputText value="#{postBean.namn}" id="namn" />
                 <h:outputLabel value="Email" for="email" />
                 <h:inputText value="#{postBean.email}" id="email" />
                 <h:commandButton action="#{postBean.savePost()}" value="Save post"/>

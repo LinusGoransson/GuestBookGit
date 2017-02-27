@@ -66,7 +66,8 @@ public class PostBean implements Serializable{
     }
     
     public String savePost(){
-        Posts posts = new Posts(null,titel, meddelande, datum, namn, email);
+        System.out.println("NAMN:!!"+UserBean.name);
+        Posts posts = new Posts(null,titel, meddelande, datum, UserBean.name, email);
         postsFacade.create(posts);
         return "index";
     }

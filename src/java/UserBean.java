@@ -1,4 +1,3 @@
-
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
@@ -37,9 +36,8 @@ public class UserBean implements Serializable{
         return "index";
     }
     
-    
+    public static String name;
     public String login(){
-        
         System.out.println("Password: "+password);
         System.out.println("Username: "+username);
         List<Users> users = usersFacade.findWithName(username);
@@ -48,6 +46,7 @@ public class UserBean implements Serializable{
         System.out.println(user.getUserId());
         System.out.println(user.getUsername());
         if(BCrypt.checkpw(password, user.getPassword())){
+            name = username;
             System.out.println("Inloggad");
                return "index";
         }else{
