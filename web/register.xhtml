@@ -6,14 +6,45 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Register</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
     </h:head>
     <h:body>
         <p:panel>
-            <ul>
-                <li><a href="/GuestBookGit/faces/index.xhtml">Home</a></li>
-                <li><a href="/GuestBookGit/faces/register.xhtml">Register</a></li>
-                <li><a href="/GuestBookGit/faces/login.xhtml">Login</a></li>
-            </ul>
+            <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Gästbok</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/GuestBookGit/faces/index.xhtml">Home</a></li>
+                        <li><a href="#">Om</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Besök våran gästbok!<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">Har du redan ett konto?</li>
+                                <li><a href="/GuestBookGit/faces/login.xhtml">Logga In</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-header">Registrera nytt konto här</li>
+                                <li><a href="/GuestBookGit/faces/register.xhtml">Registrera</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Logga ut</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
             <h3>Registrera dig</h3>
             <h:form>
                 <h:panelGrid columns="2">
@@ -25,6 +56,8 @@
                 </h:panelGrid>
             </h:form>
         </p:panel>
+        <h:outputScript library="js" name="jquery.js"></h:outputScript>
+        <h:outputScript library="js" name="bootstrap.js"></h:outputScript>
     </h:body>
 </html>
 

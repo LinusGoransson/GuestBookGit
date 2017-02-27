@@ -5,6 +5,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import nu.te4.entities.Posts;
+import nu.te4.entities.Users;
 import nu.te4.sessionbeans.PostsFacade;
 @Named
 @SessionScoped
@@ -59,7 +60,9 @@ public class PostBean implements Serializable{
     
     //Lista som retunerar alla inlägg från databasen.
     public List<Posts> getPosts(){
+        
         return postsFacade.findAll();
+        
     }
     
     public String savePost(){
@@ -67,4 +70,5 @@ public class PostBean implements Serializable{
         postsFacade.create(posts);
         return "index";
     }
+   
 }

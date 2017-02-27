@@ -4,7 +4,6 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-import nu.te4.entities.Posts;
 import nu.te4.entities.Users;
 import nu.te4.sessionbeans.UsersFacade;
 import org.mindrot.jbcrypt.BCrypt;
@@ -38,9 +37,24 @@ public class UserBean implements Serializable{
         return "index";
     }
     
-    public List<Users> getUsers(){
-           return usersFacade.findWithName(username);   
-    }
     
+    public String login(){
+        
+        System.out.println("Password: "+password);
+        System.out.println("Username: "+username);
+        List<Users> users = usersFacade.findWithName(username);
+        Users user = users.get(0);
+        System.out.println(user.getPassword());
+        System.out.println(user.getUserId());
+        System.out.println(user.getUsername());
+        if(BCrypt.checkpw(password, user.getPassword())){
+            System.out.println("Inloggad");
+               return "index";
+        }else{
+            System.out.println("Fungerar inte");
+             return "login";
+        }
+       
+    }
    
 }
