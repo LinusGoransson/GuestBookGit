@@ -2,6 +2,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import nu.te4.entities.Users;
 import nu.te4.sessionbeans.UsersFacade;
@@ -11,7 +12,7 @@ import org.mindrot.jbcrypt.BCrypt;
 @SessionScoped
 public class UserBean implements Serializable{
     private String username, password;
-    
+    private String sessionUser;
     public String getUsername() {
         return username;
     }
@@ -37,6 +38,7 @@ public class UserBean implements Serializable{
     }
     
     public static String name;
+    public static String isLoggedin;
     public String login(){
         System.out.println("Password: "+password);
         System.out.println("Username: "+username);
@@ -47,13 +49,19 @@ public class UserBean implements Serializable{
         System.out.println(user.getUsername());
         if(BCrypt.checkpw(password, user.getPassword())){
             name = username;
+            isLoggedin = "asd";
             System.out.println("Inloggad");
-               return "index";
+            System.out.println("sessionUser"+ name);
+            return "inner/index.xhtml?faces-redirect=true";
         }else{
             System.out.println("Fungerar inte");
              return "login";
         }
        
+    }
+    public String logout(){
+        isLoggedin=null;
+        return "login.xhtml?faces-redirect=true";
     }
    
 }

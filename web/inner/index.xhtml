@@ -24,22 +24,10 @@
                     <a class="navbar-brand" href="#">Gästbok</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="/GuestBookGit/faces/index.xhtml">Home</a></li>
-                        <li><a href="#">Om</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Besök våran gästbok!<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-header">Har du redan ett konto?</li>
-                                <li><a href="/GuestBookGit/faces/login.xhtml">Logga In</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li class="dropdown-header">Registrera nytt konto här</li>
-                                <li><a href="/GuestBookGit/faces/register.xhtml">Registrera</a></li>
-                            </ul>
-                        </li>
-                    </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Logga ut</a></li>
+                        <h:form>
+                        <h:commandLink value="logout" action="#{userBean.logout()}"/>  
+                        </h:form>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
