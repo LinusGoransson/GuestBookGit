@@ -34,7 +34,7 @@
         </nav>
         <h:form> 
             <p:dataScroller value="#{postBean.posts}" var="posts" chunkSize="10">
-                <div class="container">
+                <div class="container" style="padding-top: 50px;">
                     <div class="row">
                         <div class="col-sm-12">
                             <h:outputText value="#{posts.titel}"/>
@@ -73,7 +73,7 @@
                 <h:inputText value="#{postBean.meddelande}" id="meddelande" />
                 <h:outputLabel value="Email" for="email" />
                 <h:inputText value="#{postBean.email}" id="email" />
-                <h:commandButton action="#{postBean.savePost()}" value="Save post"/>
+                <h:commandButton action="#{postBean.savePost()}" value="Kommentera"/>
             </h:panelGrid>
         </h:form>
         <h:outputScript library="js" name="jquery.js"></h:outputScript>

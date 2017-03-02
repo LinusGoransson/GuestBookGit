@@ -66,6 +66,10 @@ public class PostBean implements Serializable{
     }
     
     public String savePost(){
+        System.out.println("fbNameStatic"+UserBean.fbNameStatic);
+        if(UserBean.name == null){
+            UserBean.name = UserBean.fbNameStatic;
+        }
         System.out.println("NAMN:!!"+UserBean.name);
         Posts posts = new Posts(null,titel, meddelande, datum, UserBean.name, email);
         postsFacade.create(posts);

@@ -41,18 +41,36 @@
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
-        <h3>Logga in</h3>
+        <h3 style="padding-top: 50px;">Logga in</h3>
         <h:form>
-            <h:panelGrid columns="2">
+            <p:panelGrid columns="2">
+                <f:facet name="header"></f:facet>
                 <h:outputLabel value="Username" for="username" />
                 <h:inputText value="#{userBean.username}" id="username" />
                 <h:outputLabel value="Password" for="password" />
                 <h:inputSecret  value="#{userBean.password}" id="password" />
-                <h:commandButton action="#{userBean.login()}" value="login"/>
-            </h:panelGrid>
+                <f:facet name="footer">
+                    <h:commandButton action="#{userBean.login()}" value="login"/>
+                </f:facet>
+            </p:panelGrid>
         </h:form>
+        <h:form id="myForm">
+            <p:panelGrid columns="5">  
+                <input type="hidden" name="hiddenField" id="hiddenField"/>
+                <h:commandButton class="btn btn-primary" value="Gästbok via Facebook" action="#{userBean.getfbname()}"/>
+            </p:panelGrid>
+        </h:form>
+        <p:panelGrid columns="5">
+            <button class="btn btn-primary" onclick="login();getInfo();">Verifiera din Facebook</button>
+        </p:panelGrid>
+        
+
+
+        <div style="visibility: hidden" id="status" >
+        </div>
         <h:outputScript library="js" name="jquery.js"></h:outputScript>
         <h:outputScript library="js" name="bootstrap.js"></h:outputScript>
+        <h:outputScript library="js" name="script.js"></h:outputScript>
     </h:body>
 </html>
 

@@ -60,8 +60,23 @@ public class UserBean implements Serializable{
        
     }
     public String logout(){
+        name = fbNameStatic;
         isLoggedin=null;
         return "login.xhtml?faces-redirect=true";
     }
+    public static String fbNameStatic;
+    public String getfbname(){
+	   String fbName = FacesContext.getCurrentInstance().
+		getExternalContext().getRequestParameterMap().get("hiddenField");
+           System.err.println("FbName: "+fbName);
+           if(fbName.isEmpty()){
+               return "login";
+           }else{
+               fbNameStatic = fbName;
+               isLoggedin = "asd";
+               return "inner/index.xhtml?faces-redirect=true";
+           }
+           
+	}
    
 }
