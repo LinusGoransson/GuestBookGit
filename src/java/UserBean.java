@@ -34,7 +34,7 @@ public class UserBean implements Serializable{
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         Users users = new Users(null,username,hashedPassword);
         usersFacade.create(users);
-        return "index";
+        return "login";
     }
     
     public static String name;
@@ -60,8 +60,8 @@ public class UserBean implements Serializable{
        
     }
     public String logout(){
-        name = fbNameStatic;
         isLoggedin=null;
+        name = fbNameStatic;
         return "login.xhtml?faces-redirect=true";
     }
     public static String fbNameStatic;

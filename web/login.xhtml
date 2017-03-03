@@ -45,22 +45,22 @@
         <h:form>
             <p:panelGrid columns="2">
                 <f:facet name="header"></f:facet>
-                <h:outputLabel value="Username" for="username" />
-                <h:inputText value="#{userBean.username}" id="username" />
-                <h:outputLabel value="Password" for="password" />
-                <h:inputSecret  value="#{userBean.password}" id="password" />
+                <p:outputLabel value="Username" for="username" />
+                <p:inputText value="#{userBean.username}" id="username" />
+                <p:outputLabel value="Password" for="password" />
+                <p:password  value="#{userBean.password}" id="password" />
                 <f:facet name="footer">
-                    <h:commandButton action="#{userBean.login()}" value="login"/>
+                    <p:commandButton action="#{userBean.login()}" value="login"/>
                 </f:facet>
             </p:panelGrid>
         </h:form>
         <h:form id="myForm">
-            <p:panelGrid columns="5">  
+            <p:panelGrid columns="1">  
                 <input type="hidden" name="hiddenField" id="hiddenField"/>
                 <h:commandButton class="btn btn-primary" value="Gästbok via Facebook" action="#{userBean.getfbname()}"/>
             </p:panelGrid>
         </h:form>
-        <p:panelGrid columns="5">
+        <p:panelGrid columns="1">
             <button class="btn btn-primary" onclick="login();getInfo();">Verifiera din Facebook</button>
         </p:panelGrid>
         

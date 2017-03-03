@@ -64,17 +64,16 @@
         </h:form>
    
 
-        <h2>Lägg upp ett inlägg</h2>
         <h:form class="container">
-            <h:panelGrid columns="2">
-                <h:outputLabel value="Titel" for="titel" />
-                <h:inputText value="#{postBean.titel}" id="titel" />
-                <h:outputLabel value="Meddelande" for="meddelande" />
-                <h:inputText value="#{postBean.meddelande}" id="meddelande" />
-                <h:outputLabel value="Email" for="email" />
-                <h:inputText value="#{postBean.email}" id="email" />
-                <h:commandButton action="#{postBean.savePost()}" value="Kommentera"/>
-            </h:panelGrid>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Titel" for="titel" />
+                <p:inputText value="#{postBean.titel}" id="titel" />
+                <p:outputLabel value="Meddelande" for="meddelande" />
+                <p:inputText value="#{postBean.meddelande}" id="meddelande" />
+                <p:outputLabel value="Email" for="email" />
+                <p:inputText value="#{postBean.email}" id="email" />
+            </p:panelGrid>
+            <h:commandButton action="#{postBean.savePost()}" value="Kommentera"/>
         </h:form>
         <h:outputScript library="js" name="jquery.js"></h:outputScript>
         <h:outputScript library="js" name="bootstrap.js"></h:outputScript>

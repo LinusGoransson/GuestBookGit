@@ -12,7 +12,6 @@
         <h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
     </h:head>
     <h:body>
-        <p:panel>
             <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -44,15 +43,19 @@
         </nav>
             <h3 style="padding-top: 50px;">Registrera dig</h3>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="Username" for="username" />
-                    <h:inputText value="#{userBean.username}" id="username" />
-                    <h:outputLabel value="Password" for="password" />
-                    <h:inputSecret   value="#{userBean.password}" id="password" />
-                    <h:commandButton action="#{userBean.register()}" value="Register"/>  
-                </h:panelGrid>
+                <p:panelGrid columns="2">
+                    <f:facet name="header"></f:facet>
+                    <p:outputLabel value="Username" for="username" />
+                    <p:inputText value="#{userBean.username}" id="username" />
+                    <p:outputLabel value="Password" for="password" />
+                    <p:password value="#{userBean.password}" id="password" />
+                    <f:facet name="footer"> 
+                    <p:commandButton action="#{userBean.register()}" value="Register"/>  
+                    </f:facet>
+                   
+                </p:panelGrid>
             </h:form>
-        </p:panel>
+            
         <h:outputScript library="js" name="jquery.js"></h:outputScript>
         <h:outputScript library="js" name="bootstrap.js"></h:outputScript>
     </h:body>
